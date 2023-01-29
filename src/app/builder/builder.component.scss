@@ -1,0 +1,78 @@
+.description {
+  font-style: normal;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+
+  .add-option{
+    width: 200px;
+    height: 200px;
+    border: 2px solid #352245;
+  }
+  .option {
+    color: #352245;
+    margin: 20px;
+    padding: 20px;
+    width: 350px;
+    min-height: 200px;
+    display: grid;
+    grid-template-rows: 20px 50px 1fr 50px;
+    transition: all 0.2s;
+    border: 2px solid #352245;
+  }
+
+  .link,
+  .delete,
+  .edit,
+  .icon {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .link::after {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    content: "";
+    width: 0%;
+    height: 3px;
+    transition: all 0.5s;
+  }
+
+  .link:hover::after {
+    width: 100%;
+  }
+
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    grid-row: 1/2;
+    justify-self: end;  
+    width: 50px;
+  }
+
+  .icon {
+    grid-row: 2/3;
+    font-size: 30px;
+  }
+
+  .text {
+    grid-row: 3/4;
+    font-weight: 400;
+  }
+
+  .navigate {
+    grid-row: 4/5;
+    align-self: center;
+  }
+}
+
+.guide-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}

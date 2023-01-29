@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Decision tree files</h1>
+<mat-dialog-content class="mat-typography">
+    <mat-tab-group>
+        <mat-tab label="Tree json">
+            <mat-form-field>
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                    [(ngModel)]="treeJson"></textarea>
+            </mat-form-field>
+        </mat-tab>
+        <mat-tab label="Localization keys"> <mat-form-field>
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                    [(ngModel)]="localizationJson"></textarea>
+            </mat-form-field>
+        </mat-tab>
+        <mat-tab label="Localization keys empty"> <mat-form-field>
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                    [(ngModel)]="emptyLocalizationJson"></textarea>
+            </mat-form-field> 
+        </mat-tab>
+    </mat-tab-group>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

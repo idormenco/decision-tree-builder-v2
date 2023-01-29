@@ -1,0 +1,41 @@
+<div class="container">
+    <div>
+        <button type="button" class="btn btn-primary" (click)="addNode()">Add node</button>
+        <button type="button" class="btn btn-info" (click)="generateFiles()">Generate files</button>
+        <button type="button" class="btn btn-secondary" (click)="importFromFile()">Load from file </button>
+    </div>
+    <div class="bradcrumbs">
+        <span *ngFor="let node of breadcrumbs" (click)="gotoNode(node.id)">
+            <a class="link" href="#"> <fa-icon [icon]="['fas', 'arrow-right']" />
+                {{node.text}}
+            </a>
+        </span>
+    </div>
+
+    <div class="options">
+        <ng-container *ngFor="let nodeKey of current.nodeKeys">
+            <div class="option" [@flyIn]>
+                <div class="actions">
+                    <div class="edit"><fa-icon [icon]="['fas', 'pencil']" size="lg" (click)="editText(nodeKey)" /></div>
+                    <div class="delete"><fa-icon [icon]="['fas', 'trash']" size="lg" (click)="deleteNode(nodeKey)" />
+                    </div>
+                </div>
+                <p class="text">{{decisionTree[nodeKey].text }}</p>
+                <p class="navigate" (click)="gotoNode(nodeKey)">
+                    <a class="link" href="#">Navigate <fa-icon [icon]="['fas', 'arrow-right']" /></a>
+                </p>
+            </div>
+
+        </ng-container>
+    </div>
+
+    <ng-container *ngIf="isBeyondInitialQuestion()">
+        <div class="guide-buttons">
+            <button (click)="goToStart()" class="btn col-4 default">
+                << Back to start</button>
+                    <button (click)="back()" class="btn col-4 default">
+                        < Back</button>
+        </div>
+    </ng-container>
+
+</div>

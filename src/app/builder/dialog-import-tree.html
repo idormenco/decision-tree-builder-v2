@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Decision tree files</h1>
+<mat-dialog-content class="mat-typography">
+            <mat-form-field>
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                    [(ngModel)]="treeJson"></textarea>
+            </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">Close</button>
+    <button mat-button (click)="importTree()" cdkFocusInitial>Import</button>
+</mat-dialog-actions>
