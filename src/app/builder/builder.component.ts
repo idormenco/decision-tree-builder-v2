@@ -110,7 +110,6 @@ export class BuilderComponent {
     }
   }
 
-
   generateFiles() {
     this.dialog.open(ExportTreeDialog, {
       data: this.decisionTree,
@@ -134,5 +133,17 @@ export class BuilderComponent {
         this.breadcrumbs = [this.root];
       }
     });
+  }
+
+  moveNode(currentIndex: number, desiredIndex: number){
+    if (!this.current.nodeKeys){
+    return;
+    }
+
+    if(desiredIndex < 0 || desiredIndex >= this.current.nodeKeys.length){
+      return;
+    }
+
+    [this.current.nodeKeys[currentIndex], this.current.nodeKeys[desiredIndex]] = [this.current.nodeKeys[desiredIndex], this.current.nodeKeys[currentIndex]];
   }
 }

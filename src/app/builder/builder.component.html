@@ -12,21 +12,24 @@
         </span>
     </div>
 
-    <div class="options">
-        <ng-container *ngFor="let nodeKey of current.nodeKeys">
-            <div class="option" [@flyIn]>
-                <div class="actions">
-                    <div class="edit"><fa-icon [icon]="['fas', 'pencil']" size="lg" (click)="editText(nodeKey)" /></div>
-                    <div class="delete"><fa-icon [icon]="['fas', 'trash']" size="lg" (click)="deleteNode(nodeKey)" />
+    <div class="row">
+        <div class="card" *ngFor="let nodeKey of current.nodeKeys;let i = index">
+            <div class="card-body">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="w-25 d-flex justify-content-between">
+                        <fa-icon size="lg" [icon]="['fas', 'arrow-left']" (click)="moveNode(i, i-1)" />
+                        <fa-icon size="lg" [icon]="['fas', 'arrow-right']" (click)="moveNode(i, i+1)"  />
+                    </div>
+                    <div class="w-25 d-flex justify-content-between">
+                        <fa-icon [icon]="['fas', 'pencil']" size="lg" (click)="editText(nodeKey)" />
+                        <fa-icon [icon]="['fas', 'trash']" size="lg" (click)="deleteNode(nodeKey)" />
                     </div>
                 </div>
-                <p class="text">{{decisionTree[nodeKey].text }}</p>
-                <p class="navigate" (click)="gotoNode(nodeKey)">
-                    <a class="link" href="#">Navigate <fa-icon [icon]="['fas', 'arrow-right']" /></a>
-                </p>
-            </div>
 
-        </ng-container>
+                <p class="card-text">{{decisionTree[nodeKey].text }}</p>
+                <button type="button" class="btn btn-link" (click)="gotoNode(nodeKey)">Navigate</button>
+            </div>
+        </div>
     </div>
 
     <ng-container *ngIf="isBeyondInitialQuestion()">

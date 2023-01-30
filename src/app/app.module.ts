@@ -10,15 +10,16 @@ import { BuilderComponent } from './builder/builder.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
-  faTimes,
   faArrowRight,
+  faArrowLeft,
+  faExternalLinkSquare,
   faTrash,
   faPencil
 } from '@fortawesome/free-solid-svg-icons';
-import {DialogModule} from '@angular/cdk/dialog';
-import {MatInputModule} from '@angular/material/input';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatTabsModule} from '@angular/material/tabs';
+import { DialogModule } from '@angular/cdk/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
 import { ExportTreeDialog } from './builder/dialog-export-tree';
 import { ImportTreeDialog } from './builder/dialog-import-tree';
 @NgModule({
@@ -43,17 +44,17 @@ import { ImportTreeDialog } from './builder/dialog-import-tree';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   /**
    *
    */
   constructor(library: FaIconLibrary) {
     library.addIcons(
-      faTimes,
       faArrowRight,
+      faArrowLeft,
+      faExternalLinkSquare,
       faTrash,
       faPencil
     );
-    
   }
 }
